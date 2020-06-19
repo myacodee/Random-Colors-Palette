@@ -1,0 +1,202 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+  
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; // 1rem = 10px    100% = 16px
+    overflow-y: scroll;
+}
+  
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #F5F6FA;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+/*  RANDOM COLORS   */
+.palette {
+    width: 77rem;
+    height: 25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 10rem);
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 4rem rgba(72, 78, 90, .2);
+  
+    @media screen and (max-width: 780px) {
+        width: 95%;
+        height: 30rem;
+    }
+
+    @media screen and (max-width: 757px) {
+        grid-template-columns: repeat(auto-fit, 9rem);
+    }
+
+    &__container { display: flex; 
+        flex-direction: column; 
+        align-items: center;
+    }
+
+    &__colors {
+        width: 7rem;
+        height: 7rem;
+        margin: .2rem 0;
+        border-radius: 1rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      
+        @media screen and (max-width: 780px) {
+            width: 6rem;
+            height: 6rem;
+        }
+
+        &:hover {
+            ion-icon { opacity: 1; }
+        }
+    }
+
+    span {
+        color: #484E5A;
+        text-transform: uppercase;
+    }
+}
+
+ion-icon {
+    font-size: 3rem;
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: all .4s ease;
+}
+
+/*  BUTTON FOR CHANGE COLORS  */
+.btn-change {
+    width: 16rem;
+    height: 4rem;
+    border-radius: .5rem;
+    margin: 3rem;
+    border: none;
+    font-family: inherit;
+    font-weight: 600;
+    background: #484E5A;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .2s ease;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:focus { outline: none; }
+    &:hover {
+        transform: translateY(-2px) scaleX(1.05) scaleY(1.05);
+    }
+
+    ion-icon {
+        font-size: 18px;
+        margin-left: .6rem;
+        margin-right: -1px;
+        opacity: 1;
+    }
+}
+
+/*  CUSTOM COLORS  */
+.custom-palette {
+    width: 77rem;
+    height: 20rem;
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 2rem 4rem rgba(72, 78, 90, .2);
+
+    display: grid;
+    grid-template-rows: repeat(2, min-content);
+    grid-template-columns: repeat(6, min-content);
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+  
+    @media screen and (max-width: 780px) {
+        width: 95%;
+    }
+
+    .text {
+        width: 30rem;
+        text-align: center;
+        color: #9fadc5;
+    }
+
+    span {
+        grid-row: 2 / 3;
+        color: #484E5A;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+}
+
+.custom__box {
+    width: 10rem;
+    height: 10rem;
+    margin: .5rem 1rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    @media screen and (max-width: 780px) {
+        width: 8rem;
+        height: 8rem;
+    }
+    @media screen and (max-width: 630px) {
+        width: 6rem;
+        height: 6rem;
+    }
+
+    &:hover {
+        ion-icon { opacity: 1; }
+    }
+}
+
+.custom__box, span {
+    animation: appear .5s ease;
+
+    &.animate {
+        animation: disappear .2s ease forwards;
+    }
+
+    &.move {
+        transition: all .5s ease;
+    }
+}
+
+@keyframes appear {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+@keyframes disappear {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
